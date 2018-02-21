@@ -1,0 +1,38 @@
+﻿<Page
+    x:Class="UWPLaTeXCSharp.TextEditor"
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:local="using:UWPLaTeXCSharp"
+    xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+    xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+    mc:Ignorable="d">
+
+    <Grid Background="{ThemeResource ApplicationPageBackgroundThemeBrush}">
+        <StackPanel x:Name="mainWindow"
+                    Orientation="Horizontal">
+            <StackPanel x:Name="leftSidebar"
+                        Orientation="Vertical">
+                <HyperlinkButton x:Name="homeButton"
+                         Content="Home"
+                         Margin="10, 10, 10, 10"
+                         HorizontalAlignment="Left"
+                         VerticalAlignment="Top"
+                         Height="80"
+                         Width="80"
+                         FontSize="20" Click="Home_Click">
+                </HyperlinkButton>
+            </StackPanel>
+            <StackPanel x:Name="mainPanel"
+                        Orientation="Vertical">
+                <TextBox x:Name="editorBlock"   
+                         HorizontalAlignment="Stretch"
+                         VerticalAlignment="Stretch"
+                         Margin="4, 4, 4, 4"
+                         AcceptsReturn="True"
+                         ScrollViewer.VerticalScrollBarVisibility="Auto">
+                    
+                </TextBox>
+            </StackPanel>
+        </StackPanel>
+    </Grid>
+</Page>
