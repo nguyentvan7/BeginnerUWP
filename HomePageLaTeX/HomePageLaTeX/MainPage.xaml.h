@@ -17,5 +17,7 @@ namespace HomePageLaTeX
 	public:
 		MainPage();
 
+	private:
+		void HyperlinkButton_Click(Platform::Object^ sender, Windows::UI::Xaml::RoutedEventArgs^ e);
 	};
 }
