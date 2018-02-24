@@ -31,9 +31,27 @@ namespace UWPLaTeXCSharp
         {
             this.Frame.Navigate(typeof(TextEditor));
         }
-        private void Open_Click(object sender, RoutedEventArgs e)
+        private async void Open_Click(object sender, RoutedEventArgs e)
         {
-            //Open file picker
+            var picker = new Windows.Storage.Pickers.FileOpenPicker();
+            picker.ViewMode = Windows.Storage.Pickers.PickerViewMode.List;
+            picker.SuggestedStartLocation = Windows.Storage.Pickers.PickerLocationId.DocumentsLibrary;
+            picker.FileTypeFilter.Add(".txt");
+            picker.FileTypeFilter.Add(".tex");
+            Windows.Storage.StorageFile file = await picker.PickSingleFileAsync();
+            if (file != null)
+            {
+                // Application now has read/write access to the picked file
+                this.fileText.Text = "Picked file: " + file.Name;
+            }
+            else
+            {
+                this.fileText.Text = "Operation cancelled.";
+            }
+        }
+        protected override void OnNavigatedTo(NavigationEventArgs e)
+        {
+            Windows.UI.Core.SystemNavigationManager.GetForCurrentView().AppViewBackButtonVisibility = Windows.UI.Core.AppViewBackButtonVisibility.Collapsed;
         }
     }
 }

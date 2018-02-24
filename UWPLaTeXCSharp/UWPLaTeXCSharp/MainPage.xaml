@@ -19,15 +19,15 @@
                         Orientation="Vertical" 
                         HorizontalAlignment="Left"
                         Margin="0, 80, 80, 0">
-                    <HyperlinkButton x:Name="newButton" 
+                    <Button x:Name="newButton" 
                         Content="New" 
                         HorizontalAlignment="Center" 
                         Height="100" 
                         Width="150" 
                         FontSize="36"
                         Click="New_Click">
-                    </HyperlinkButton>
-                    <HyperlinkButton x:Name="openButton" 
+                    </Button>
+                    <Button x:Name="openButton" 
                         Content="Open" 
                         Margin="0, 40, 0, 0" 
                         HorizontalAlignment="Center" 
@@ -35,7 +35,7 @@
                         Width="150" 
                         FontSize="36" 
                         Click="Open_Click">
-                    </HyperlinkButton>
+                    </Button>
                     <Button x:Name="settingsButton" 
                         Content="Settings" 
                         Margin="0, 40, 0, 0" 
@@ -43,6 +43,8 @@
                         Height="100" 
                         Width="150" 
                         FontSize="36"></Button>
+                    <TextBlock x:Name="fileText">
+                    </TextBlock>
                 </StackPanel>
                 <StackPanel x:Name="recentPanel"
                         Orientation="Vertical"
