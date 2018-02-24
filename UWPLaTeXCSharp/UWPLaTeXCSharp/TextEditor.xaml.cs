@@ -27,9 +27,20 @@ namespace UWPLaTeXCSharp
             this.InitializeComponent();
         }
 
-        private void Home_Click(object sender, RoutedEventArgs e)
+        protected override void OnNavigatedTo(NavigationEventArgs e)
         {
-            this.Frame.Navigate(typeof(MainPage));
+            Windows.UI.Core.SystemNavigationManager.GetForCurrentView().AppViewBackButtonVisibility = Windows.UI.Core.AppViewBackButtonVisibility.Visible;
+            Windows.UI.Core.SystemNavigationManager.GetForCurrentView().BackRequested += App_BackRequested;
+        }
+
+        private void App_BackRequested(object sender, Windows.UI.Core.BackRequestedEventArgs e)
+        {
+            Frame rootFrame = Window.Current.Content as Frame;
+            if (rootFrame.CanGoBack)
+            {
+                e.Handled = true;
+                rootFrame.GoBack();
+            }
         }
     }
 }

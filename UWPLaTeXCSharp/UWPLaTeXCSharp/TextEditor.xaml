@@ -9,21 +9,23 @@
 
     <Grid Background="{ThemeResource ApplicationPageBackgroundThemeBrush}">
         <Grid x:Name="mainWindow">
-            <HyperlinkButton x:Name="homeButton"
-                             Content="Home"
-                             Margin="10, 10, 10, 10"
-                             HorizontalAlignment="Left"
-                             VerticalAlignment="Top"
-                             Height="80"
-                             Width="80"
-                             FontSize="16" Click="Home_Click"
-                             Grid.Column="0"
-                             Grid.Row="0">  
-            </HyperlinkButton>
+            <Button x:Name="homeButton"
+                    Content="Home"
+                    HorizontalAlignment="Left"
+                    VerticalAlignment="Top"
+                    FontSize="16"
+                    Click="Home_Click"
+                    Grid.Column="0"
+                    Grid.Row="0">  
+            </Button>
             <Grid x:Name="leftSidebar"
                   Grid.Column="0"
-                  Grid.Row="0"
+                  Grid.Row="1"
                   Width="80">
+                <Button x:Name="boldButton"
+                        Content="B">
+                </Button>
+                <AppBarButton Content="C"></AppBarButton>
             </Grid>
             <Grid x:Name="mainPanel"
                   Grid.Column="1"
