@@ -8,31 +8,42 @@
     mc:Ignorable="d">
 
     <Grid Background="{ThemeResource ApplicationPageBackgroundThemeBrush}">
-        <StackPanel x:Name="mainWindow"
-                    Orientation="Horizontal">
-            <StackPanel x:Name="leftSidebar"
-                        Orientation="Vertical">
-                <HyperlinkButton x:Name="homeButton"
-                         Content="Home"
-                         Margin="10, 10, 10, 10"
-                         HorizontalAlignment="Left"
-                         VerticalAlignment="Top"
-                         Height="80"
-                         Width="80"
-                         FontSize="20" Click="Home_Click">
-                </HyperlinkButton>
-            </StackPanel>
-            <StackPanel x:Name="mainPanel"
-                        Orientation="Vertical">
+        <Grid x:Name="mainWindow">
+            <HyperlinkButton x:Name="homeButton"
+                             Content="Home"
+                             Margin="10, 10, 10, 10"
+                             HorizontalAlignment="Left"
+                             VerticalAlignment="Top"
+                             Height="80"
+                             Width="80"
+                             FontSize="16" Click="Home_Click"
+                             Grid.Column="0"
+                             Grid.Row="0">  
+            </HyperlinkButton>
+            <Grid x:Name="leftSidebar"
+                  Grid.Column="0"
+                  Grid.Row="0"
+                  Width="80">
+            </Grid>
+            <Grid x:Name="mainPanel"
+                  Grid.Column="1"
+                  Grid.Row="1">
                 <TextBox x:Name="editorBlock"   
                          HorizontalAlignment="Stretch"
                          VerticalAlignment="Stretch"
                          Margin="4, 4, 4, 4"
                          AcceptsReturn="True"
                          ScrollViewer.VerticalScrollBarVisibility="Auto">
-                    
                 </TextBox>
-            </StackPanel>
-        </StackPanel>
+            </Grid>
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width=".1*"/>
+                <ColumnDefinition Width="1*"/>
+            </Grid.ColumnDefinitions>
+            <Grid.RowDefinitions>
+                <RowDefinition Height=".1*"/>
+                <RowDefinition Height="1*"/>
+            </Grid.RowDefinitions>
+        </Grid>
     </Grid>
 </Page>

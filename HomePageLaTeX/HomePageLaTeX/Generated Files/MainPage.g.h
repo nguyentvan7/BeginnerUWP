@@ -15,6 +15,7 @@ namespace Windows {
                 ref class TextBlock;
                 ref class ListView;
                 ref class Button;
+                ref class HyperlinkButton;
             }
         }
     }
@@ -42,7 +43,7 @@ namespace HomePageLaTeX
         private: ::Windows::UI::Xaml::Controls::StackPanel^ recentPanel;
         private: ::Windows::UI::Xaml::Controls::ListView^ recentList;
         private: ::Windows::UI::Xaml::Controls::Button^ newButton;
-        private: ::Windows::UI::Xaml::Controls::Button^ openButton;
+        private: ::Windows::UI::Xaml::Controls::HyperlinkButton^ openButton;
         private: ::Windows::UI::Xaml::Controls::Button^ settingsButton;
     };
 }
