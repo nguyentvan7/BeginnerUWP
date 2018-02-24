@@ -18,7 +18,7 @@ using Windows.UI.Xaml.Navigation;
 namespace UWPLaTeXCSharp
 {
     /// <summary>
-    /// An empty page that can be used on its own or navigated to within a Frame.
+    /// The text editor page, where the user can input text into a text field.
     /// </summary>
     public sealed partial class TextEditor : Page
     {
@@ -27,12 +27,26 @@ namespace UWPLaTeXCSharp
             this.InitializeComponent();
         }
 
-        protected override void OnNavigatedTo(NavigationEventArgs e)
+        //Appends "\textbf{}" when user pushes bold button, and also changes focus back to textfield.
+        private void Bold_Click(object sender, RoutedEventArgs e)
         {
-            Windows.UI.Core.SystemNavigationManager.GetForCurrentView().AppViewBackButtonVisibility = Windows.UI.Core.AppViewBackButtonVisibility.Visible;
-            Windows.UI.Core.SystemNavigationManager.GetForCurrentView().BackRequested += App_BackRequested;
+            editorBlock.SelectedText = "\\textbf{" + editorBlock.SelectedText + "}";
+            editorBlock.Focus(FocusState.Programmatic);
+            editorBlock.SelectionStart = editorBlock.SelectionStart + 8;
+            editorBlock.SelectionLength = 0;
         }
 
+        protected override void OnNavigatedTo(NavigationEventArgs e)
+        {
+            //Displays back button in title bar.
+            Windows.UI.Core.SystemNavigationManager.GetForCurrentView().AppViewBackButtonVisibility = Windows.UI.Core.AppViewBackButtonVisibility.Visible;
+            Windows.UI.Core.SystemNavigationManager.GetForCurrentView().BackRequested += App_BackRequested;
+
+            //Focus textbox.
+            editorBlock.Focus(FocusState.Programmatic);
+        }
+
+        //Handles back button push.
         private void App_BackRequested(object sender, Windows.UI.Core.BackRequestedEventArgs e)
         {
             Frame rootFrame = Window.Current.Content as Frame;

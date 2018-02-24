@@ -9,23 +9,15 @@
 
     <Grid Background="{ThemeResource ApplicationPageBackgroundThemeBrush}">
         <Grid x:Name="mainWindow">
-            <Button x:Name="homeButton"
-                    Content="Home"
-                    HorizontalAlignment="Left"
-                    VerticalAlignment="Top"
-                    FontSize="16"
-                    Click="Home_Click"
-                    Grid.Column="0"
-                    Grid.Row="0">  
-            </Button>
             <Grid x:Name="leftSidebar"
                   Grid.Column="0"
                   Grid.Row="1"
                   Width="80">
                 <Button x:Name="boldButton"
-                        Content="B">
+                        Content="B"
+                        Click="Bold_Click"
+                        AllowFocusOnInteraction="False">
                 </Button>
-                <AppBarButton Content="C"></AppBarButton>
             </Grid>
             <Grid x:Name="mainPanel"
                   Grid.Column="1"
@@ -39,7 +31,7 @@
                 </TextBox>
             </Grid>
             <Grid.ColumnDefinitions>
-                <ColumnDefinition Width=".1*"/>
+                <ColumnDefinition Width=".05*"/>
                 <ColumnDefinition Width="1*"/>
             </Grid.ColumnDefinitions>
             <Grid.RowDefinitions>
