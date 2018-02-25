@@ -27,15 +27,6 @@ namespace UWPLaTeXCSharp
             this.InitializeComponent();
         }
 
-        //Appends "\textbf{}" when user pushes bold button, and also changes focus back to textfield.
-        private void Bold_Click(object sender, RoutedEventArgs e)
-        {
-            editorBlock.SelectedText = "\\textbf{" + editorBlock.SelectedText + "}";
-            editorBlock.Focus(FocusState.Programmatic);
-            editorBlock.SelectionStart = editorBlock.SelectionStart + 8;
-            editorBlock.SelectionLength = 0;
-        }
-
         protected override void OnNavigatedTo(NavigationEventArgs e)
         {
             //Displays back button in title bar.
@@ -55,6 +46,58 @@ namespace UWPLaTeXCSharp
                 e.Handled = true;
                 rootFrame.GoBack();
             }
+        }
+
+        //Appends "\textbf{}" when user pushes bold button. Adapts to selected text.
+        private void boldButton_Click(object sender, RoutedEventArgs e)
+        {
+            int num = 0;
+            if (editorBlock.SelectionLength != 0)
+            {
+                num = editorBlock.SelectionLength;
+            }
+            editorBlock.SelectedText = "\\textbf{" + editorBlock.SelectedText + "}";
+            editorBlock.SelectionStart = editorBlock.SelectionStart + 8 + num;
+            editorBlock.SelectionLength = 0;
+        }
+
+        //Appends "\textit{}" when user pushes italic button. Adapts to selected text.
+        private void italicButton_Click(object sender, RoutedEventArgs e)
+        {
+            int num = 0;
+            if (editorBlock.SelectionLength != 0)
+            {
+                num = editorBlock.SelectionLength;
+            }
+            editorBlock.SelectedText = "\\textit{" + editorBlock.SelectedText + "}";
+            editorBlock.SelectionStart = editorBlock.SelectionStart + 8 + num;
+            editorBlock.SelectionLength = 0;
+        }
+
+        //Appends "\underline{}" when user pushes underline button. Adapts to selected text.
+        private void underlineButton_Click(object sender, RoutedEventArgs e)
+        {
+            int num = 0;
+            if (editorBlock.SelectionLength != 0)
+            {
+                num = editorBlock.SelectionLength;
+            }
+            editorBlock.SelectedText = "\\underline{" + editorBlock.SelectedText + "}";
+            editorBlock.SelectionStart = editorBlock.SelectionStart + 11 + num;
+            editorBlock.SelectionLength = 0;
+        }
+
+        //Appends "\begin{flushleft}..." when user pushes left align button. Adapts to selected text.
+        private void leftAlignButton_Click(object sender, RoutedEventArgs e)
+        {
+            int num = 0;
+            if (editorBlock.SelectionLength != 0)
+            {
+                num = editorBlock.SelectionLength;
+            }
+            editorBlock.SelectedText = "\\begin{flushleft}\n\t" + editorBlock.SelectedText + "\n\\end{flushleft}";
+            editorBlock.SelectionStart = editorBlock.SelectionStart + 19 + num;
+            editorBlock.SelectionLength = 0;
         }
     }
 }

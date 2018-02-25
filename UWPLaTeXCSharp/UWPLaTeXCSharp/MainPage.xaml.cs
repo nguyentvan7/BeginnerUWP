@@ -25,11 +25,11 @@ namespace UWPLaTeXCSharp
             this.InitializeComponent();
         }
 
-        private void New_Click(object sender, RoutedEventArgs e)
+        private void newButton_Click(object sender, RoutedEventArgs e)
         {
             this.Frame.Navigate(typeof(TextEditor));
         }
-        private async void Open_Click(object sender, RoutedEventArgs e)
+        private async void openButton_Click(object sender, RoutedEventArgs e)
         {
             var picker = new Windows.Storage.Pickers.FileOpenPicker();
             picker.ViewMode = Windows.Storage.Pickers.PickerViewMode.List;

@@ -9,16 +9,31 @@
 
     <Grid Background="{ThemeResource ApplicationPageBackgroundThemeBrush}">
         <Grid x:Name="mainWindow">
-            <Grid x:Name="leftSidebar"
+            <StackPanel x:Name="leftSidebar"
                   Grid.Column="0"
                   Grid.Row="1"
                   Width="80">
                 <Button x:Name="boldButton"
                         Content="B"
-                        Click="Bold_Click"
+                        Click="boldButton_Click"
                         AllowFocusOnInteraction="False">
                 </Button>
-            </Grid>
+                <Button x:Name="italicButton"
+                        Content="I"
+                        Click="italicButton_Click"
+                        AllowFocusOnInteraction="False">
+                </Button>
+                <Button x:Name="underlineButton"
+                        Content="U"
+                        Click="underlineButton_Click"
+                        AllowFocusOnInteraction="False">
+                </Button>
+                <Button x:Name="leftAlignButton"
+                        Content="L"
+                        Click="leftAlignButton_Click"
+                        AllowFocusOnInteraction="False">
+                </Button>
+            </StackPanel>
             <Grid x:Name="mainPanel"
                   Grid.Column="1"
                   Grid.Row="1">
@@ -27,7 +42,8 @@
                          VerticalAlignment="Stretch"
                          Margin="4, 4, 4, 4"
                          AcceptsReturn="True"
-                         ScrollViewer.VerticalScrollBarVisibility="Auto">
+                         ScrollViewer.VerticalScrollBarVisibility="Auto"
+                         TextWrapping="Wrap">
                 </TextBox>
             </Grid>
             <Grid.ColumnDefinitions>
